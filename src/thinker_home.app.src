@@ -1,0 +1,14 @@
+{application, thinker_home,
+ [
+  {description, "N2O Home site"},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib,
+                  n2o,
+                  kvs
+                 ]},
+  {mod, { web_app, []}},
+  {env, []}
+ ]}.
