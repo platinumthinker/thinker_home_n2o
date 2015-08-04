@@ -4,7 +4,7 @@
 -compile(export_all).
 -include_lib("n2o/include/wf.hrl").
 -include_lib("kvs/include/user.hrl").
--define(APP, n2o_sample).
+-define(APP, thinker_home).
 
 start_link() -> supervisor:start_link({local, ?MODULE}, ?MODULE, []).
 
@@ -39,11 +39,12 @@ mime() -> [{mimetypes,cow_mimetypes,all}].
 
 dispatch_rules() ->
     cowboy_router:compile(
-        [{'_', [
-            {"/static/[...]", n2o_dynalo, {dir, "priv/static", mime()}},
-            {"/n2o/[...]", n2o_dynalo, {dir, "deps/n2o/priv", mime()}},
-            {"/rest/:resource", rest_cowboy, []},
-            {"/rest/:resource/:id", rest_cowboy, []},
-            {"/ws/[...]", bullet_handler, [{handler, n2o_bullet}]},
-            {'_', n2o_cowboy, []}
+      [{'_',
+        [
+         {"/static/[...]", cowboy_static, {priv_dir, ?APP, <<"static">>, [mime()]}},
+         {"/n2o/[...]",    cowboy_static, {priv_dir, n2o, <<"">>, [mime()]}},
+         {"/rest/:resource", rest_cowboy, []},
+         {"/rest/:resource/:id", rest_cowboy, []},
+         {"/ws/[...]", bullet_handler, [{handler, n2o_bullet}]},
+         {'_', n2o_cowboy, []}
     ]}]).
