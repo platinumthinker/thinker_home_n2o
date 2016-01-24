@@ -3,15 +3,11 @@
 -include_lib("kvs/include/feed.hrl").
 -include_lib("n2o/include/wf.hrl").
 
-main() ->
-    #dtl{file = "login",
-         app = thinker_home,
-         bindings = [{body,body()},
-                     {folders,folders()}]}.
+main() -> #dtl{file="login",
+               app=thinker_home,
+               bindings=[{body,body()},{folders,folders()}]}.
 folders() ->
-    string:join(
-      [filename:basename(F) || F <- filelib:wildcard(
-                                     code:priv_dir(thinker_home) ++ "/snippets/*/")],",").
+    string:join([filename:basename(F)||F<-filelib:wildcard(code:priv_dir(thinker_home)++"/snippets/*/")],",").
 
 body() ->
  [ #span   { id=display },                #br{},

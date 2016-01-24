@@ -1,27 +1,11 @@
-Hello world on N2O framework!
-==============================================================================
+Simple Review Application
+=========================
 
-Debug Logging:
-------------------------------------------------------------------------------
+Just leave a comment to a published file 
+or to a realm anonymously or on behalf.
+Create you own realms and files. 
+Discuss and Review with other users realtime.
 
-config module:
-```
-log_level() -> debug.
-log_modules() ->  any.
-  %% For custom modules:
-  % [
-  %   login,
-  %   index
-  % ].
-```
-
-sys.config:
-```
- {n2o,
-  [
-   {log_modules, config},
-   {log_level, config},
-   {log_backend, n2o_log},
-  ]
- }
-```
+Credits
+-------
+* Brought to you by 5HT

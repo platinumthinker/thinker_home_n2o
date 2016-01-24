@@ -1,15 +1,9 @@
 {application, thinker_home,
  [
-  {description, "N2O Home site"},
+  {description, "N2O VXZ Sample App"},
   {vsn, "1"},
   {registered, []},
-  {applications, [
-                  kernel,
-                  stdlib,
-                  n2o,
-                  kvs,
-                  rest
-                 ]},
+  {applications, [kernel, stdlib, n2o, kvs, inets, mad, xmerl]},
   {mod, { web_app, []}},
   {env, []}
  ]}.
