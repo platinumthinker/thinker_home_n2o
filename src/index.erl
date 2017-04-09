@@ -2,6 +2,7 @@
 -compile(export_all).
 -include_lib("kvs/include/entry.hrl").
 -include_lib("n2o/include/wf.hrl").
+-include_lib("nitro/include/nitro.hrl").
 
 main() ->
     case wf:user() of
